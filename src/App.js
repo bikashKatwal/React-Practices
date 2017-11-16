@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import classes from './App.css';
 import  Person from './Person/Person';
 
 class App extends Component {
@@ -71,18 +71,18 @@ class App extends Component {
           inlineStyle.backgroundColor='red';
       }
 
-      const classes=[];
+      const assignedClasses=[];
       if(this.state.persons.length<= 2){
-          classes.push('red');// classes=['red']
+          assignedClasses.push(classes.red);// assignedClasses=['red']
       }
       if(this.state.persons.length<= 1){
-          classes.push('bold');// classes=['red','bold']
+          assignedClasses.push(classes.bold);// assignedClasses=['red','bold']
       }
 
     return (
-          <div className="App">
+          <div className={classes.App}>
             <h2>Hi, I'm React App</h2>
-              <p className={classes.join(' ')}>This is really working</p>
+              <p className={assignedClasses.join(' ')}>This is really working</p>
               <button
                   style={inlineStyle}
                   onClick={this.togglePersonHandler}>Toggle Person</button>
