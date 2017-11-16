@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Radium from 'radium';
+import Radium, { StyleRoot } from 'radium';
 import  Person from './Person/Person';
 
 class App extends Component {
@@ -12,7 +12,6 @@ class App extends Component {
       ],
         showPersons: false
     };
-
 
     nameChangedHandler =(event, id) =>{
 
@@ -90,14 +89,16 @@ class App extends Component {
       }
 
     return (
-      <div className="App">
-        <h2>Hi, I'm React App</h2>
-          <p className={classes.join(' ')}>This is really working</p>
-          <button
-              style={inlineStyle}
-              onClick={this.togglePersonHandler}>Toggle Person</button>
-          {persons}
-      </div>
+        <StyleRoot>
+          <div className="App">
+            <h2>Hi, I'm React App</h2>
+              <p className={classes.join(' ')}>This is really working</p>
+              <button
+                  style={inlineStyle}
+                  onClick={this.togglePersonHandler}>Toggle Person</button>
+              {persons}
+          </div>
+        </StyleRoot>
     );
   }
 }
