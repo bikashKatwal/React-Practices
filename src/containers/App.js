@@ -36,6 +36,23 @@ class App extends Component {
         console.log('[App.js] Inside componentDidMount()');
     }
 
+    componentWillReceiveProps(nextProps){
+        console.log('[UPDATE App.js] inside componentWillReceiveProps', nextProps);
+    }
+
+    shouldComponentUpdate(nextProps, nextState){
+        console.log('[UPDATE App.js] inside shouldComponentUpdate', nextProps, nextState);
+        return true;
+    }
+
+    componentWillUpdate(nextProps, nextState){
+        console.log('[UPDATE App.js] inside componentWillUpdate', nextProps, nextState);
+    }
+
+    componentDidUpdate(){
+        console.log('[Persons.js] Inside componentDidUpdate');
+    }
+
 
     nameChangedHandler =(event, id) =>{
 
