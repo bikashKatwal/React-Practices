@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import classes from './App.css';
 import  Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
 
 //Press Ctrl twice and without releasing up and down to write multiple
 
-class App extends Component {
+class App extends PureComponent {
     constructor(props){
         super(props);
         console.log('[App.js] Inside Constructor', props);
@@ -40,10 +40,11 @@ class App extends Component {
         console.log('[UPDATE App.js] inside componentWillReceiveProps', nextProps);
     }
 
-    shouldComponentUpdate(nextProps, nextState){
+    /*shouldComponentUpdate(nextProps, nextState){
         console.log('[UPDATE App.js] inside shouldComponentUpdate', nextProps, nextState);
-        return true;
-    }
+        return nextState.persons !== this.state.persons ||
+            nextState.showPersons !== this.state.showPersons;
+    }*/
 
     componentWillUpdate(nextProps, nextState){
         console.log('[UPDATE App.js] inside componentWillUpdate', nextProps, nextState);
@@ -98,6 +99,7 @@ class App extends Component {
 
     return (
           <div className={classes.App}>
+              <button onClick={()=>{this.setState({showPersons: true})}}>Show Persons</button>
               <Cockpit
                   appTitle={this.props.title}
                   showPersons={this.state.showPersons}
